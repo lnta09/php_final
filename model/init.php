@@ -19,13 +19,18 @@
                 )";
 
             // Role: 0 user, 1 admin
-
            $this->set_query($sql);
            $result = $this->excute_query();
            
+           $sql = "INSERT INTO user (firstname, lastname, username, password, role)
+                VALUES 
+                    ('user', 'user', 'user@example.com', 'abc123', 1),
+                    ('admin', 'admin', 'admin@example.com', 'abc123', 0)";
+
+            $this->set_query($sql);
+            $result = $this->excute_query();
 
             ############### Table CATEGORY  
-
             $sql = "CREATE TABLE IF NOT EXISTS category (
                 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                 name VARCHAR(50) NOT NULL UNIQUE,

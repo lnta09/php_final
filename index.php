@@ -100,75 +100,302 @@
     </div>
 <?php } ?>
 
-    <?php
+<div class="bg-light my-5 py-4">
+    <div class="text-center mb-4"><h3>Shop by Department</h3></div>
+    <div class="flex-row d-flex justify-content-center align-items-center mb-4">
+        <div class="column text-center mx-3">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZlfZbqWtHYXtT6wO_furnitureimage.png?auto=format,compress" 
+                    width="130" height="130">
+                <div class="text-dark">Furniture</div>    
+            </a>
+        </div>
+        <div class="column text-center mx-3">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZlfZbKWtHYXtT6wM_bathimage.png?auto=format,compress" 
+                    width="130" height="130">
+                <div class="text-dark">Bath</div>    
+            </a>
+        </div>
+        <div class="column text-center mx-3">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZlfZcaWtHYXtT6wR_kitchenimage.png?auto=format,compress" 
+                    width="130" height="130">
+                <div class="text-dark">Kitchen</div>    
+            </a>
+        </div>
+        <div class="column text-center mx-3">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZlfZdaWtHYXtT6wV_rugsimage.png?auto=format,compress" 
+                    width="130" height="130">
+                <div class="text-dark">Rugs</div>    
+            </a>
+        </div>
+        <div class="column text-center mx-3">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZlfZcqWtHYXtT6wS_lightingimage.png?auto=format,compress" 
+                    width="130" height="130">
+                <div class="text-dark">Lightning</div>    
+            </a>
+        </div>
+        <div class="column text-center mx-3">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZlfZdKWtHYXtT6wU_outdoorimage.png?auto=format,compress" 
+                    width="130" height="130">
+                <div class="text-dark">Outdoor</div>    
+            </a>
+        </div>
+    </div>
+    <div class="flex-row d-flex justify-content-center align-items-center">
+        <div class="column text-center mx-3">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZlfZb6WtHYXtT6wP_Homedecorimage.png?auto=format,compress" 
+                    width="130" height="130">
+                <div class="text-dark">Home Decor</div>    
+            </a>
+        </div>
+        <div class="column text-center mx-3">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZlfZbaWtHYXtT6wN_bedroomimage.png?auto=format,compress" 
+                    width="130" height="130">
+                <div class="text-dark">Bedroom</div>    
+            </a>
+        </div>
+        <div class="column text-center mx-3">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZlfZc6WtHYXtT6wT_livingroomimage.png?auto=format,compress" 
+                    width="130" height="130">
+                <div class="text-dark">Living Room</div>    
+            </a>
+        </div>
+        <div class="column text-center mx-3">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZlfZd6WtHYXtT6wX_storageimage.png?auto=format,compress" 
+                    width="130" height="130">
+                <div class="text-dark">Storage</div>    
+            </a>
+        </div>
+        <div class="column text-center mx-3">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZzzgL68jQArT1C47_holidaydecor-2-.png?auto=format,compress" 
+                    width="130" height="130">
+                <div class="text-dark">Holiday</div>    
+            </a>
+        </div>
+        <div class="column text-center mx-3">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZlfZdqWtHYXtT6wW_saleimage.png?auto=format,compress" 
+                    width="130" height="130">
+                <div class="text-dark">Sale</div>    
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="">
+    <div class="text-center mb-4"><h4>Featured Categories</h4></div>
+    <div class="flex-row d-flex justify-content-between align-items-center">
+        <div class="column text-center">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZzvLea8jQArT1Abk_FeaturedCategoriesWeek3%264.jpg?auto=format%2Ccompress&w=708&h=708" 
+                    width="275" height="275">
+                <div class="text-dark mt-2"><h5>Area Rugs</h5></div>    
+            </a>
+        </div>
+        <div class="column text-center">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZzvLnK8jQArT1Abm_home-design-7-.jpg?auto=format%2Ccompress&w=708&h=708" 
+                    width="275" height="275">
+                <div class="text-dark mt-2"><h5>Bars & Counter Tools</h5></div>    
+            </a>
+        </div>
+        <div class="column text-center">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZzvNvK8jQArT1AcR_home-design.jpg?auto=format%2Ccompress&w=708&h=708" 
+                    width="275" height="275">
+                <div class="text-dark mt-2"><h5>Chandeliers</h5></div>    
+            </a>
+        </div>
+        <div class="column text-center">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZzvMEK8jQArT1Ab2_home-design.jpg?auto=format%2Ccompress&rect=0%2C0%2C928%2C928&w=708&h=708" 
+                    width="275" height="275">
+                <div class="text-dark mt-2"><h5>Bathroom Vanities</h5></div>    
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="my-5 py-4 bg-secondary text-center w-100">
+    <div class="text-white mb-3"><h1>New Arivals</h1></div>
+    <a class="btn btn-light w-25 py-3"><h6 class="m-0">Shop Now</h6></a>
+</div>
+
+<?php
         require ('controller/c_list_product_home.php');
 
         $c_product = new C_product();
         $list_product= $c_product->list_all_product();
-    ?>
-    <div class=".container my-5">  
-        <h2 class="text-center mb-0">Shop top seller</h2>
-        <div id="productCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner ">
-                <?php 
+?>
+
+<div class="my-5">  
+    <h3 class="ml-5 pl-5 mb-0">Shop top sellers</h3>
+    <div id="productCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner ">
+            <?php 
                 $itemsPerSlide = 5;
                 $totalProducts = count($list_product);
 
                 for ($i = 0; $i < $totalProducts; $i += $itemsPerSlide) {
-                    echo '<div class="carousel-item ' . ($i === 0 ? 'active' : '') . '">
-                            <div class="row pl-3">
-                                <div class="pl-4 pr-5"></div>';
+            ?> 
+                <div class="carousel-item <?php if($i === 0){ echo "active";} else {echo "";} ?>">
+                    <div class="row pl-3">
+                        <div class="pl-4 pr-5"></div>
 
-                    for ($j = $i; $j < $i + $itemsPerSlide && $j < $totalProducts; $j++) {
-                        $img = substr($list_product[$j]['avatar'], 3);
-                        echo '
+                <?php for ($j = $i; $j < $i + $itemsPerSlide && $j < $totalProducts; $j++) {
+                        $img = substr($list_product[$j]['avatar'], 3); ?>
                         <a href="#" class="card ml-4 shadow-sm my-4" style="width: 170px;">
-                            <img src="' . $img . '" class="card-img-top p-3" alt="Product Image">
-                            <div class="card-body pt-0 px-3 pb-3" style="height: 130px;>
-                                <h6 class="card-title">' . $list_product[$j]['name'] . '</h6>
-                                <p class="card-text text-danger">$' . $list_product[$j]['price'] . '</p>
+                            <img src="<?php echo $img; ?>" class="card-img-top p-3" alt="Product Image">
+                            <div class="card-body pt-0 px-3 pb-3" style="height: 130px;">
+                                <h6 class="card-title"> <?php echo $list_product[$j]['name']; ?></h6>
+                                <p class="card-text text-danger"> $<?php echo $list_product[$j]['price']; ?></p>
                             </div>
-                        </a>';
-                    }
-                    echo '</div>
-                        </div>';
-                }
-                ?>
-            </div>
-            <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
-                <span class=".carousel-control-prev-icon shadow rounded-circle" aria-hidden="true">
-                    <img src="https://cdn-icons-png.flaticon.com/128/11839/11839308.png"
-                        width="35" height="35">
-                </span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
-                <span class=".carousel-control-next-icon shadow rounded-circle" aria-hidden="true">
-                    <img src="https://cdn-icons-png.flaticon.com/128/11839/11839355.png"
-                     width="35" height="35">
-                </span>
-                <span class="sr-only">Next</span>
-            </a>
+                        </a>
+                <?php } ?>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
-        </div>
+        <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
+            <span class=".carousel-control-prev-icon shadow rounded-circle" aria-hidden="true">
+                <img src="https://cdn-icons-png.flaticon.com/128/11839/11839308.png"
+                    width="35" height="35">
+            </span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
+            <span class=".carousel-control-next-icon shadow rounded-circle" aria-hidden="true">
+                <img src="https://cdn-icons-png.flaticon.com/128/11839/11839355.png"
+                 width="35" height="35">
+            </span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
+</div>
 
-<!-- Main Content -->
-<div class="container my-5">
-    <div class="row">
-        <div class="col-md-4">
-            <h2>About Us</h2>
-            <p>We are dedicated to providing the best services to our customers. Our team is experienced and passionate about what we do.</p>
+<div class="bg-light py-4">
+    <div class="text-center mb-4"><h4>Seasonal Savings</h4></div>
+    <div class="flex-row d-flex justify-content-between align-items-center">
+        <div class="column w-25">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZykXP68jQArT0LMe_2022_Houzz_KitchenDining_FWDining_0344.jpg?auto=format%2Ccompress&rect=0%2C2731%2C5461%2C5461&w=708&h=708" 
+                    width="275" height="275">
+                <div class="text-dark mt-2 text-center">
+                    <h5>Up to 60% Off Dining Room Chairs</h5>
+                </div>    
+            </a>
         </div>
-        <div class="col-md-4">
-            <h2>Our Services</h2>
-            <p>We offer a variety of services to meet your needs, including web development, graphic design, and digital marketing.</p>
+        <div class="column w-25">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZzvLnK8jQArT1Abm_home-design-7-.jpg?auto=format%2Ccompress&w=708&h=708" 
+                    width="275" height="275">
+                <div class="text-dark mt-2 text-center">
+                    <h5>Up to 50% Off Sofas and Sectionals</h5>
+                </div>    
+            </a>
         </div>
-        <div class="col-md-4">
-            <h2>Contact Us</h2>
-            <p>If you have any questions, feel free to reach out to us through our contact form or email.</p>
+        <div class="column w-25">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZzvNvK8jQArT1AcR_home-design.jpg?auto=format%2Ccompress&w=708&h=708" 
+                    width="275" height="275">
+                <div class="text-dark mt-2 text-center">
+                    <h5>Up to 60% Off Holiday Decorations</h5>
+                </div>    
+            </a>
+        </div>
+        <div class="column w-25">
+            <a href="#">
+                <img src="https://images.prismic.io/houzz/ZzvMEK8jQArT1Ab2_home-design.jpg?auto=format%2Ccompress&rect=0%2C0%2C928%2C928&w=708&h=708" 
+                    width="275" height="275">
+                <div class="text-dark mt-2 text-center px-2">
+                    <h5 class="text-wrap">Up to 70% Off Coffee & Accent Tables</h5>
+                </div>    
+            </a>
         </div>
     </div>
 </div>
+<div>
+    <a href="#"><img src="https://images.prismic.io/houzz/ZykYiq8jQArT0LNK_dweb-3-.png?auto=format,compress"
+    width="100%" height="100%"></a>
+</div>
+
+<div class="my-5">  
+    <h3 class="ml-5 pl-5 mb-0">Trending Products</h3>
+    <div id="productCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner ">
+            <?php 
+                $itemsPerSlide = 5;
+                $totalProducts = count($list_product);
+
+                for ($i = 0; $i < $totalProducts; $i += $itemsPerSlide) {
+            ?> 
+                <div class="carousel-item <?php if($i === 0){ echo "active";} else {echo "";} ?>">
+                    <div class="row pl-3">
+                        <div class="pl-4 pr-5"></div>
+
+                <?php for ($j = $i; $j < $i + $itemsPerSlide && $j < $totalProducts; $j++) {
+                        $img = substr($list_product[$j]['avatar'], 3); ?>
+                        <a href="#" class="card ml-4 shadow-sm my-4" style="width: 170px;">
+                            <img src="<?php echo $img; ?>" class="card-img-top p-3" alt="Product Image">
+                            <div class="card-body pt-0 px-3 pb-3" style="height: 130px;">
+                                <h6 class="card-title"> <?php echo $list_product[$j]['name']; ?></h6>
+                                <p class="card-text text-danger"> $<?php echo $list_product[$j]['price']; ?></p>
+                            </div>
+                        </a>
+                <?php } ?>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+        <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
+            <span class=".carousel-control-prev-icon shadow rounded-circle" aria-hidden="true">
+                <img src="https://cdn-icons-png.flaticon.com/128/11839/11839308.png"
+                    width="35" height="35">
+            </span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
+            <span class=".carousel-control-next-icon shadow rounded-circle" aria-hidden="true">
+                <img src="https://cdn-icons-png.flaticon.com/128/11839/11839355.png"
+                 width="35" height="35">
+            </span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="bg-light my-5 py-5">
+    <div class="container">
+        <div class="text-center h1 font-weight-normal mb-5">Build a home that reflects the best version of you</div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h2>About Us</h2>
+                <p>We are dedicated to providing the best services to our customers. Our team is experienced and passionate about what we do.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h2>Our Services</h2>
+                <p>We offer a variety of services to meet your needs, including web development, graphic design, and digital marketing.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h2>Contact Us</h2>
+                <p>If you have any questions, feel free to reach out to us through our contact form or email.</p>
+            </div>
+        </div>
+        <div class="text-secondary text-center font-weight-light mt-4"><small>*Per Newsweek's list of “America's Best Customer Service 2023” in the category of “Online Retailers: Home Goods for Online Home Stores”</small></div>
+    </div>
+</div>
+
+
 
 <?php include('template/footer.php') ?>
