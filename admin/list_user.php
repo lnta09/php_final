@@ -1,9 +1,7 @@
-
-
-    <?php 
+<?php 
         require('../template/admin_head.php');
         require ('../template/admin_header.php');
-    ?>
+?>
 
 
     <div class="content">
@@ -16,22 +14,17 @@
 
             <?php
                 require ('../controller/c_list_user.php');
-
                 $c_user = new C_user();
-                
                 $list_user = $c_user->list_all_user();
-
             ?>
             <!-- Add your content here -->
 
             <div class="row">
-
                 <div class="col-md-12">
-                    
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Username</th>
+                                <th>Email</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Role</th>
@@ -39,11 +32,9 @@
                             </tr>
                         </thead>
                         <tbody>
-
-                         <?php foreach ($list_user as $user): ?>
-
+                        <?php foreach ($list_user as $user): ?>
                             <tr>
-                                <td><?php echo "{$user['username']}";     ?></td>
+                                <td><?php echo "{$user['email']}";     ?></td>
                                 <td><?php echo "{$user['firstname']}";    ?></td>
                                 <td><?php echo "{$user['lastname']}";     ?></td>
                                 <td><?php echo "{$user['role']}";         ?></td>
@@ -52,16 +43,11 @@
                                     <button class="btn btn-danger btn-sm">Delete</button>
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
-                        
-                            
+                        <?php endforeach; ?>    
                         </tbody>
                     </table>
-
                 </div>
-               
             </div>
-
         </div>
     </div>
 <?php require('../template/admin_footer.php'); ?>

@@ -23,14 +23,12 @@
         public function set_query($sql)
         {
             $this->query = $sql;
-           
         }
 
         public function excute_query()
         {
             $result = $this->conn->query( $this->query );
             return $result;
-            
         }
 
         public function close()

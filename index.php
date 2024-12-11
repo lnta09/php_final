@@ -59,7 +59,7 @@
                         <div class="w-100 mt-4">
                             <form method="POST" action="signup.php">
                                 <div class="form-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Your Email" name="username" id="username" 
+                                    <input type="text" class="form-control" placeholder="Your Email" name="email" id="email" 
                                         aria-describedby="emailHelp" required>
                                 </div>
                                 <div class="form-group mb-3">

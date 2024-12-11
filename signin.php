@@ -8,7 +8,7 @@
                 <form method="POST" action="controller/c_signin.php">
                     <div class="form-group flex-column d-flex justify-content-start">
                         <label class="mb-1" for="username">Username or Email Address</label>
-                        <input class="form-control" type="text" id="username" name="username" required>
+                        <input class="form-control" type="text" id="email" name="email" required>
                     </div>
                     <div class="form-group flex-column d-flex justify-content-start">
                         <label class="mb-1" for="password">Password</label>
@@ -29,7 +29,7 @@
                     <button type="submit" class="btn btn-dark font-weight-bolder w-100">Sign In</button>
                 </form>
                 <button type="submit" class="btn btn-light border border-dark mt-2 px-5 font-weight-bolder w-100">Email Me Link to Sign In</button>
-                <div class="mt-2"><a href="#"><small>Forgot your password? ></small></a></div>
+                <div class="mt-2"><a href="forgotPassword.php"><small>Forgot your password? ></small></a></div>
             </div>
         </div>
         <div class="border-bottom pt-5 flex-column d-flex justify-content-start align-items-center">

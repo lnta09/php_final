@@ -14,8 +14,8 @@
                 <form method="POST" action="controller/c_signup.php">
                     <div class="form-group flex-column d-flex justify-content-start">
                         <label class="mb-1 pr-5 mr-5" for="username">Username or Email Address</label>
-                        <input class="form-control" type="text" id="username" name="username" required
-                            value="<?php if(isset($_POST['username'])){echo $_POST['username'];} ?>">
+                        <input class="form-control" type="text" id="email" name="email" required
+                            value="<?php if(isset($_POST['email'])){echo $_POST['email'];} ?>">
                     </div>
                     <div class="form-group flex-column d-flex justify-content-start mb-0">
                         <label class="mb-1" for="password">Password</label>
@@ -23,6 +23,11 @@
                     </div>
                     <div class="text-secondary"><small>Use 8 or more characters, with a mix of letters, numbers</small></div>
                     <div class="text-secondary"><small>and symbols</small></div>
+
+                    <div class="form-group flex-column d-flex justify-content-start mb-0 mt-2">
+                        <label class="mb-1" for="re-password">Confirm your password</label>
+                        <input class="form-control" type="password" id="re-password" name="re-password" required>
+                    </div>
 
                     <div class="form-group flex-column d-flex justify-content-start mt-3">
                         <label class="mb-1" for="firstname">First name</label>
@@ -32,6 +37,7 @@
                         <label class="mb-1" for="lastname">Lastname</label>
                         <input class="form-control" type="lastname" id="lastname" name="lastname" required>
                     </div>
+                    
                     <button type="submit" class="btn btn-dark font-weight-bolder mt-4 w-100">Sign Up</button>
                 </form>
             </div>
