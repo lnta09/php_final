@@ -1,32 +1,48 @@
-<div class="">
-    <h2>Thêm sản phẩm</h2>
-    
-    <form action="../controller/c_add_product.php" method="POST" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label for="name" class="form-label">Product Name</label>
-            <input type="text" id="name" name="name" class="form-control" required>
-        </div>
+<button type="button" class="p-2 mb-4 btn btn-outline-success flex-row d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <img src="https://cdn-icons-png.flaticon.com/128/4315/4315609.png"
+        width="30" height="30">
+    <div class="ms-2">Add Product</div>
+</button>
 
-        <div class="mb-3">
-            <label for="description" class="form-label">Product Description</label>
-            <textarea class="form-control" name="description" rows="3" required></textarea>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form method="post" action="../controller/c_add_product.php" enctype="multipart/form-data">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Add product</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="name" class="form-label">Product Name</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
 
-        <div class="mb-3">
-            <label for="price" class="form-label">Price</label>
-            <input type="number" id="price" name="price" class="form-control" step="0.01" required>
+            <div class="mb-3">
+                <label for="description" class="form-label">Product Description</label>
+                <textarea class="form-control" name="description" rows="3" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" id="price" name="price" class="form-control" step="0.01" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="category_id" class="form-label">Category ID</label>
+                <input type="number" id="category_id" name="category_id" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="avatar" class="form-label">Product Avatar (Image)</label>
+                <input type="file" id="avatar" name="avatar" class="form-control" accept="image/*" required>
+            </div>
         </div>
-
-        <div class="mb-3">
-            <label for="category_id" class="form-label">Category ID</label>
-            <input type="number" id="category_id" name="category_id" class="form-control" required>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-success">Add</button>
         </div>
-
-        <div class="mb-3">
-            <label for="avatar" class="form-label">Product Avatar (Image)</label>
-            <input type="file" id="avatar" name="avatar" class="form-control" accept="image/*" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Add Product</button>
+      </div>
     </form>
+  </div>
 </div>

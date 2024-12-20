@@ -12,15 +12,9 @@
             <h2>Welcome to the Admin Dashboard!</h2>
             <p>This is your central hub for managing the application.</p>
             <!-- Add your content here -->
+            <?php require('add_product.php'); ?>
+
             <div class="row">
-
-                <!-- <div class="col-md-12">
-                    <a href="add_flower.php">
-                        <button class="btn btn-primary"> + Add Flower </button>
-                    </a>
-                </div> -->
-                <?php require('add_product.php'); ?>
-
                 <div class="col-md-12">
                     <?php
                         require ('../controller/c_list_product.php');
@@ -46,8 +40,10 @@
                                 <td> <?php  echo "{$product['description']}";     ?> </td>
                                 <td> <?php  echo "{$product['price']}";     ?> </td>
                                 <td>
-                                    <button class="btn btn-primary btn-sm">Edit</button>
-                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                    <div class="flex-row d-flex justify-content-center">
+                                        <button class="btn btn-primary btn-sm me-1">Edit</button>
+                                        <button class="btn btn-danger btn-sm">Delete</button>
+                                    </div>
                                 </td>
                             </tr>
                             <?php endforeach; ?>

@@ -3,7 +3,9 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light py-2 fixed-top shadow-sm">
     <button class="border-0 btn btn-outline-light mr-3">
-        <img class="d-flex align-items-center" width="27" height="30" alt="" loading="lazy" src="https://cdn-icons-png.flaticon.com/128/2976/2976215.png">
+        <img class="d-flex align-items-center" width="27" height="30" alt="" loading="lazy" 
+            src="https://cdn-icons-png.flaticon.com/128/2976/2976215.png"
+            id="toggle-button">
     </button>
     <a class="navbar-brand mr-4" href="index.php">
         <img class="d-flex align-items-center" width="45" height="45" alt="" loading="lazy" src="https://cdn-icons-png.flaticon.com/128/10740/10740594.png">

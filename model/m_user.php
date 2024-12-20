@@ -11,6 +11,27 @@
             $this->close();
         }
 
+        public function edit_user($email, $firstname, $lastname, $role){
+            $sql = "
+                Update user
+                Set firstname = '$firstname',
+                    lastname = '$lastname',
+                    role = '$role'
+                Where email = '$email'
+            ";
+            $this->set_query($sql);
+            $this->excute_query();
+        }
+
+        public function delete_user($email){
+            $sql = "
+                Delete From user 
+                Where email = '$email'
+            ";
+            $this->set_query($sql);
+            $this->excute_query();
+        }
+
         public function signin_user($email, $password)
         {
             $sql = "SELECT  * 

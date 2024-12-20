@@ -1,6 +1,8 @@
 <?php include('template/head.php') ?>
 
 <?php include('template/header.php') ?>
+
+<?php include('template/sidebar.php'); ?>
     
 <?php  if ( isset( $_SESSION["loginUSER"] ) ) { ?>
     <div class="flex-column d-flex justify-content-start align-items-center w-100">
