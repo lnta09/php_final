@@ -5,8 +5,8 @@
     
 
     <div class="content">
-        <div class="header">
-            <h1>Product</h1>
+        <div class="header flex-row d-flex justify-content-center align-items-center">
+            <div class="h1 m-0 p-0">Product</div>
         </div>
         <div class="container mt-4">
             <h2>Welcome to the Admin Dashboard!</h2>

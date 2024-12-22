@@ -23,7 +23,7 @@
             color: #ffffff;
         }
         .sidebar a:hover {
-            background-color: #00ff00;
+            background-color:rgb(10, 106, 66);
             color: black;
         }
         .content {
@@ -37,6 +37,7 @@
             padding: 15px;
             text-align: center;
         }
+        
     </style>
 </head>
 <body>

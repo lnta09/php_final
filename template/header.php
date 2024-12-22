@@ -29,7 +29,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link d-flex align-items-center justify-content-end" href="#">
+                <a class="nav-link d-flex align-items-center justify-content-end ml-3" href="#">
                     <img src="https://cdn-icons-png.flaticon.com/128/11137/11137831.png"
                         width="38" height="34" class="">
                     <small class="rounded-circle bg-danger text-white position-absolute align-self-start px-1">
@@ -43,10 +43,17 @@
             <?php  if ( isset( $_SESSION["loginUSER"] ) ) { ?>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> <?php echo $_SESSION["loginUSER"] ?>  </a>
+                    <a href="user_profile.php"><img src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png"
+                    width="34" height="34" class="ml-4"></a>
+                    <!-- <a class="nav-link" href="#"> <?php echo $_SESSION["loginUSER"] ?>  </a> -->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="controller/c_signout.php" > Sign Out</a>
+                    <a class="flex-row d-flex justify-content-center align-items-center" 
+                        href="controller/c_signout.php" ">
+                        <img src="https://cdn-icons-png.flaticon.com/128/4400/4400828.png"
+                            width="34" height="34" class="mr-1 ml-4">    
+                        <div class="text-secondary">Sign Out</div>
+                    </a>
                 </li>
 
                 <?php } else { ?>
