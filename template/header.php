@@ -29,7 +29,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link d-flex align-items-center justify-content-end ml-3" href="#">
+                <a class="nav-link d-flex align-items-center justify-content-end ml-3" href="giohang.php">
                     <img src="https://cdn-icons-png.flaticon.com/128/11137/11137831.png"
                         width="38" height="34" class="">
                     <small class="rounded-circle bg-danger text-white position-absolute align-self-start px-1">
