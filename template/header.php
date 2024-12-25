@@ -29,7 +29,9 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link d-flex align-items-center justify-content-end ml-3" href="#">
+                <a class="nav-link d-flex align-items-center justify-content-end ml-3" 
+                href="<?php if ( isset( $_SESSION["loginUSER"] ) ) {echo "";} ?>"
+                data-toggle="tooltip" data-placement="bottom" title="Cart">
                     <img src="https://cdn-icons-png.flaticon.com/128/11137/11137831.png"
                         width="38" height="34" class="">
                     <small class="rounded-circle bg-danger text-white position-absolute align-self-start px-1">
@@ -43,7 +45,7 @@
             <?php  if ( isset( $_SESSION["loginUSER"] ) ) { ?>
 
                 <li class="nav-item">
-                    <a href="user_profile.php"><img src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png"
+                    <a href="user_profile.php" data-toggle="tooltip" data-placement="bottom" title="Profile"><img src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png"
                     width="34" height="34" class="ml-4"></a>
                     <!-- <a class="nav-link" href="#"> <?php echo $_SESSION["loginUSER"] ?>  </a> -->
                 </li>

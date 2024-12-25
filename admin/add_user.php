@@ -23,12 +23,12 @@
               <input class="form-control" type="password" id="password" name="password" required>
           </div>
           <div class="form-group flex-column d-flex justify-content-start mt-3">
-              <label class="mb-1" for="firstname">First name</label>
-              <input class="form-control" type="text" id="firstname" name="firstname" required>
+              <label class="mb-1" for="username">Userame</label>
+              <input class="form-control" type="text" id="username" name="username" required>
           </div>
           <div class="form-group flex-column d-flex justify-content-start mt-3">
-              <label class="mb-1" for="lastname">Lastname</label>
-              <input class="form-control" type="text" id="lastname" name="lastname" required>
+              <label class="mb-1" for="phone">Phone</label>
+              <input class="form-control" type="number" id="phone" name="phone" required>
           </div>
           <div class="form-group flex-column d-flex justify-content-start mt-3">
               <label class="mb-1" for="role">Role</label>

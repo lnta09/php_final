@@ -13,7 +13,7 @@
             <div class="border-right pr-5 pt-3 pb-1">
                 <form method="POST" action="controller/c_signup.php">
                     <div class="form-group flex-column d-flex justify-content-start">
-                        <label class="mb-1 pr-5 mr-5" for="username">Username or Email Address</label>
+                        <label class="mb-1 pr-5 mr-5" for="email">Username or Email Address</label>
                         <input class="form-control" type="text" id="email" name="email" required
                             value="<?php if(isset($_POST['email'])){echo $_POST['email'];} ?>">
                     </div>
@@ -30,12 +30,12 @@
                     </div>
 
                     <div class="form-group flex-column d-flex justify-content-start mt-3">
-                        <label class="mb-1" for="firstname">First name</label>
-                        <input class="form-control" type="text" id="firstname" name="firstname" required>
+                        <label class="mb-1" for="username">Username</label>
+                        <input class="form-control" type="text" id="username" name="username" required>
                     </div>
                     <div class="form-group flex-column d-flex justify-content-start">
-                        <label class="mb-1" for="lastname">Lastname</label>
-                        <input class="form-control" type="lastname" id="lastname" name="lastname" required>
+                        <label class="mb-1" for="phone">Phone number</label>
+                        <input class="form-control" type="number" id="phone" name="phone" required>
                     </div>
                     
                     <button type="submit" class="btn btn-dark font-weight-bolder mt-4 w-100">Sign Up</button>

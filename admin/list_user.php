@@ -31,8 +31,8 @@
                         <thead>
                             <tr>
                                 <th>Email</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
+                                <th>Username</th>
+                                <th>Phone</th>
                                 <th>Role</th>
                                 <th>Actions</th>
                             </tr>
@@ -41,8 +41,8 @@
                         <?php foreach ($list_user as $user): ?>
                             <tr class="<?php if($_SESSION["loginUSER"] == $user['email']){echo 'text-danger-emphasis h5';} ?>">
                                 <td><?php echo "{$user['email']}";     ?></td>
-                                <td><?php echo "{$user['firstname']}";    ?></td>
-                                <td><?php echo "{$user['lastname']}";     ?></td>
+                                <td><?php echo "{$user['username']}";    ?></td>
+                                <td><?php echo "{$user['phone']}";     ?></td>
                                 <td><?php 
                                     $role = $user['role'] == 0 ? "admin" : "user";
                                     echo $role; 
@@ -51,8 +51,8 @@
                                     <div class="flex-row d-flex justify-content-start align-items-center ">
                                         <button class="me-1 btn btn-primary btn-sm edit-btn"
                                             data-email="<?php echo $user['email']; ?>" 
-                                            data-firstname="<?php echo $user['firstname']; ?>" 
-                                            data-lastname="<?php echo $user['lastname']; ?>"
+                                            data-username="<?php echo $user['username']; ?>" 
+                                            data-phone="<?php echo $user['phone']; ?>"
                                             data-role="<?php echo $user['role']; ?>"
                                             data-bs-toggle="modal" data-bs-target="#editUserModal">
                                             Edit

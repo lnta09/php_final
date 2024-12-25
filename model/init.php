@@ -10,8 +10,8 @@
             ############### Table USER
             $sql = "CREATE TABLE IF NOT EXISTS user (
                 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                firstname VARCHAR(30) NOT NULL,
-                lastname VARCHAR(30) NOT NULL,
+                username VARCHAR(30) NOT NULL,
+                phone VARCHAR(11) NOT NULL,
                 email VARCHAR(30) NOT NULL UNIQUE,
                 password VARCHAR(255) NOT NULL,
                 reset_token VARCHAR(255),
@@ -24,10 +24,10 @@
            $this->set_query($sql);
            $result = $this->excute_query();
            
-           $sql = "INSERT INTO user (firstname, lastname, email, password, role)
+           $sql = "INSERT INTO user (username, phone, email, password, role)
                 VALUES 
-                    ('user', 'user', 'user@example.com', 'abc123', 1),
-                    ('admin', 'admin', 'admin@example.com', 'abc123', 0)";
+                    ('user', '0379254384', 'user@example.com', 'abc123', 1),
+                    ('admin', '0364062775', 'admin@example.com', 'abc123', 0)";
 
             $this->set_query($sql);
             $result = $this->excute_query();

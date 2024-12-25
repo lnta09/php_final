@@ -13,12 +13,12 @@
                     <input type="email" class="form-control" id="edit-email" name="email" readonly>
                   </div>
                   <div class="mb-3">
-                      <label for="edit-firstname" class="form-label">First Name</label>
-                      <input type="text" class="form-control" id="edit-firstname" name="firstname" required>
+                      <label for="edit-firstname" class="form-label">Userame</label>
+                      <input type="text" class="form-control" id="edit-username" name="username" required>
                   </div>
                   <div class="mb-3">
-                      <label for="edit-lastname" class="form-label">Last Name</label>
-                      <input type="text" class="form-control" id="edit-lastname" name="lastname" required>
+                      <label for="edit-lastname" class="form-label">Phone Number</label>
+                      <input type="number" class="form-control" id="edit-phone" name="phone" required>
                   </div>
                   <?php //if($_SESSION["loginUSER"] != $user['email']){  ?>
                     <div class="mb-3">
@@ -46,13 +46,13 @@
       editButtons.forEach(btn => {
           btn.addEventListener("click", () => {
             const email = btn.getAttribute("data-email");
-            const firstname = btn.getAttribute("data-firstname");
-            const lastname = btn.getAttribute("data-lastname");
+            const username = btn.getAttribute("data-username");
+            const phone = btn.getAttribute("data-phone");
             const role = btn.getAttribute("data-role");
 
               document.getElementById("edit-email").value = email;
-              document.getElementById("edit-firstname").value = firstname;
-              document.getElementById("edit-lastname").value = lastname;
+              document.getElementById("edit-username").value = username;
+              document.getElementById("edit-phone").value = phone;
               document.getElementById("edit-role").value = role;
           });
       });

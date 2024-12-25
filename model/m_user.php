@@ -2,20 +2,20 @@
     require_once("database.php");
     
     class User extends Database{
-        public function create_1_user( $email, $password, $firstname, $lastname, $role )
+        public function create_1_user( $email, $password, $username, $phone, $role )
         {
-            $sql = "INSERT INTO user (firstname, lastname, email, password, role)
-                    VALUES ('{$firstname}', '{$lastname}', '{$email}', '{$password}', '{$role}')";
+            $sql = "INSERT INTO user (username, phone, email, password, role)
+                    VALUES ('{$username}', '{$phone}', '{$email}', '{$password}', '{$role}')";
             $this->set_query($sql);
             $this->excute_query();
             $this->close();
         }
 
-        public function edit_user($email, $firstname, $lastname, $role){
+        public function edit_user($email, $username, $phone, $role){
             $sql = "
                 Update user
-                Set firstname = '$firstname',
-                    lastname = '$lastname',
+                Set username = '$username',
+                    phone = '$phone',
                     role = '$role'
                 Where email = '$email'
             ";
@@ -32,6 +32,22 @@
             $this->excute_query();
         }
 
+        public function select_user($email){
+            $sql = "
+                Select * From user
+                Where email='$email'
+            ";
+            $this->set_query($sql);
+            $result = $this->excute_query();
+            if($result->num_rows > 0){
+                $row = $result->fetch_assoc();
+                return $row;
+            }
+            else{
+                return null;
+            }
+        }
+
         public function signin_user($email, $password)
         {
             $sql = "SELECT  * 
@@ -39,17 +55,14 @@
                     WHERE email='$email' AND password = '$password'
                     LIMIT 1 ";
             $this->set_query($sql);
-            // echo "$this->query <br>";0799
             $result = $this->excute_query();
             $this->close();
             if ($result->num_rows > 0) {
-                // output data of each row
                 while($row = $result->fetch_assoc()) {
-                //   echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-                session_start();
-                $_SESSION["loginUSER"] = $row["email"];
-                $_SESSION["roleUSER"] = $row["role"];
-                return $row["email"];
+                    session_start();
+                    $_SESSION["loginUSER"] = $row["email"];
+                    $_SESSION["roleUSER"] = $row["role"];
+                    return $row["email"];
                 }
             } 
             else {return null;}

@@ -4,16 +4,12 @@
     if( isset($_POST) && $_POST['password'] == $_POST['re-password']){
         $email = $_POST['email'];
         $password = $_POST['password'];
-        if(isset($_POST['firstname'])){
-            $firstname = $_POST['firstname'];
-            $lastname = $_POST['lastname'];
-        }else{
-            $firstname = $lastname = 'default';
-        }
+        $username = $_POST['username'];
+        $phone = $_POST['phone'];
         $role = 1;
         
         $new_user = new User();
-        $new_user->create_1_user( $email, $password, $firstname, $lastname, $role );
+        $new_user->create_1_user( $email, $password, $username, $phone, $role );
 
         header("Location: ../signin.php");
     }else{

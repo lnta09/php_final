@@ -4,12 +4,12 @@
     if( isset($_POST)){
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
+        $username = $_POST['username'];
+        $phone = $_POST['phone'];
         $role = $_POST['role'];
         
         $new_user = new User();
-        $new_user->create_1_user( $email, $password, $firstname, $lastname, $role );
+        $new_user->create_1_user( $email, $password, $username, $phone, $role );
 
         header("Location: ../admin/list_user.php");
     }else{
