@@ -1,206 +1,304 @@
+<?php
+session_start();
+
+// Kết nối CSDL
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "giohang";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Kết nối thất bại: " . $conn->connect_error);
+}
+
+// Khởi tạo biến để lưu thông báo
+$message = '';
+
+// Xử lý khi form được submit
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $payment_method = $_POST['payment_method'] ?? '';
+    $order_id = 'DH' . time(); // Tạo mã đơn hàng unique
+    
+    // Lưu thông tin đơn hàng vào session
+    $_SESSION['order_id'] = $order_id;
+    $_SESSION['payment_method'] = $payment_method;
+    
+    // Hiển thị thông tin thanh toán tương ứng
+    $show_payment_info = true;
+}
+
+// Lấy thông tin giỏ hàng từ session
+$cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+$product_list = [];
+$total = 0;
+
+if (!empty($cart)) {
+    $product_ids = implode(',', array_keys($cart));
+    $sql = "SELECT id, name, price FROM product WHERE id IN ($product_ids)";
+    $result = $conn->query($sql);
+
+    if ($result && $result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $quantity = $cart[$row['id']];
+            $subtotal = $row['price'] * $quantity;
+            $row['quantity'] = $quantity;
+            $row['subtotal'] = $subtotal;
+            $product_list[] = $row;
+            $total += $subtotal;
+        }
+    }
+}
+
+$_SESSION['total'] = $total;
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanh toán</title>
+    <title>Phương thức thanh toán</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background: #f8f8f8;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 20px;
+            background-color: #f8f8f8;
         }
-
-        .payment-container {
-            width: 100%;
-            max-width: 800px;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            display: flex;
-            overflow: hidden;
-            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-
-        .price-section {
-            background: #67B7D1;
-            color: white;
-            padding: 40px;
-            width: 40%;
-            position: relative;
-            clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+        .order-summary {
+            margin-bottom: 30px;
         }
-
-        .price-section h2 {
-            font-size: 2em;
-            margin: 0;
-        }
-
-        .price-section p {
-            margin: 10px 0;
-            opacity: 0.9;
-        }
-
-        .form-section {
-            padding: 40px;
-            width: 60%;
-        }
-
-        .form-group {
+        .product-list {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
             margin-bottom: 20px;
         }
-
-        .form-group label {
-            display: block;
-            color: #666;
-            margin-bottom: 5px;
-            font-size: 0.9em;
-            text-transform: uppercase;
+        .product-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
         }
-
-        .bank-info {
+        .product-item:last-child {
+            border-bottom: none;
+        }
+        .total-section {
             background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 15px;
+            border-radius: 5px;
             margin-top: 20px;
         }
-
-        .bank-info p {
+        .total-row {
+            display: flex;
+            justify-content: space-between;
             margin: 10px 0;
-            color: #333;
-            font-size: 1.1em;
         }
-
-        .bank-info strong {
-            color: #2c3e50;
+        .payment-methods {
+            margin-top: 30px;
         }
-
-        select {
-            width: 100%;
-            padding: 12px;
+        .payment-option {
             border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 1em;
-            margin-bottom: 15px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
         }
-
-        .copy-button {
+        .payment-option:hover {
+            background: #f5f5f5;
+        }
+        .payment-option.selected {
+            border-color: #2ecc71;
+            background: #f7fff9;
+        }
+        .btn-proceed {
+            background: #2ecc71;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .btn-proceed:hover {
+            background: #27ae60;
+        }
+        .payment-info {
+            background: #f5f5f5;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .payment-info p {
+            margin: 10px 0;
+        }
+        .copy-btn {
             background: #3498db;
             color: white;
             border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
+            padding: 5px 10px;
+            border-radius: 3px;
             cursor: pointer;
-            font-size: 0.9em;
             margin-left: 10px;
         }
-
-        .copy-button:hover {
-            background: #2980b9;
-        }
-
-        .submit-button {
-            background: #2ecc71;
-            color: white;
-            border: none;
+        .success-message {
+            background: #d4edda;
+            color: #155724;
             padding: 15px;
-            width: 100%;
-            border-radius: 6px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background 0.3s;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .bank-details {
             margin-top: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
         }
-
-        .submit-button:hover {
-            background: #27ae60;
-        }
-
-        .note {
-            font-size: 0.9em;
-            color: #666;
-            margin-top: 15px;
+        .qr-code {
             text-align: center;
+            margin: 20px 0;
         }
     </style>
-    <script>
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                alert('Đã sao chép!');
-            });
-        }
-
-        function updatePaymentMethod() {
-            var method = document.getElementById('payment_method').value;
-            var bankInfo = document.getElementById('bank-info');
-            var cardInfo = document.getElementById('card-info');
-
-            if (method === 'direct_transfer') {
-                bankInfo.style.display = 'block';
-                cardInfo.style.display = 'none';
-            } else {
-                bankInfo.style.display = 'none';
-                cardInfo.style.display = 'block';
-            }
-        }
-    </script>
 </head>
 <body>
-    <div class="payment-container">
-        <div class="price-section">
-            <h2>Tổng thanh toán</h2>
-            <?php
-            session_start();
-            $total = isset($_SESSION['total']) ? $_SESSION['total'] : 0;
-            ?>
-            <div class="total-amount"><?php echo number_format($total); ?> VNĐ</div>
-            <p>Thanh toán an toàn & bảo mật</p>
-        </div>
+    <div class="container">
+        <h1>Xác nhận đơn hàng</h1>
+        
+        <?php if (isset($show_payment_info) && $show_payment_info): ?>
+            <div class="success-message">
+                <h3>Đơn hàng #<?php echo $_SESSION['order_id']; ?> đã được xác nhận!</h3>
+                <p>Vui lòng thanh toán theo thông tin bên dưới</p>
+            </div>
+        <?php endif; ?>
 
-        <div class="form-section">
-            <form action="handle_payment.php" method="POST">
-                <div class="form-group">
-                    <label>Phương thức thanh toán</label>
-                    <select id="payment_method" name="payment_method" onchange="updatePaymentMethod()">
-                        <option value="direct_transfer" selected>Chuyển khoản trực tiếp</option>
-                        <option value="card">Thẻ tín dụng/ghi nợ</option>
-                        <option value="momo">Ví MoMo</option>
-                    </select>
-                </div>
-
-                <div id="bank-info" class="bank-info">
-                    <h3>Thông tin chuyển khoản</h3>
-                    <p><strong>Ngân hàng:</strong> Agribank</p>
-                    <p>
-                        <strong>Số tài khoản:</strong> 123456789
-                        <button type="button" class="copy-button" onclick="copyToClipboard('123456789')">
-                            Sao chép
-                        </button>
-                    </p>
-                    <p>
-                        <strong>Chủ tài khoản:</strong> HOAI AN
-                        <button type="button" class="copy-button" onclick="copyToClipboard('HOAI AN')">
-                            Sao chép
-                        </button>
-                    </p>
-                    <p><strong>Nội dung chuyển khoản:</strong> Thanh toan don hang #<?php echo rand(10000, 99999); ?></p>
-                    <div class="note">
-                        * Vui lòng chuyển khoản đúng số tiền và nội dung để đơn hàng được xử lý nhanh nhất
+        <!-- Phần tóm tắt đơn hàng -->
+        <div class="order-summary">
+            <h2>Sản phẩm đã chọn</h2>
+            <div class="product-list">
+                <?php foreach ($product_list as $product): ?>
+                <div class="product-item">
+                    <div class="product-info">
+                        <strong><?php echo $product['name']; ?></strong>
+                        <span>x <?php echo $product['quantity']; ?></span>
+                    </div>
+                    <div class="product-price">
+                        <?php echo number_format($product['subtotal']); ?> VNĐ
                     </div>
                 </div>
-
-                <div id="card-info" style="display: none;">
-                    <!-- Form thông tin thẻ ở đây -->
+                <?php endforeach; ?>
+            </div>
+            
+            <div class="total-section">
+                <div class="total-row">
+                    <span>Tạm tính:</span>
+                    <strong><?php echo number_format($total); ?> VNĐ</strong>
                 </div>
-
-                <button type="submit" class="submit-button">XÁC NHẬN THANH TOÁN</button>
-            </form>
+                <div class="total-row">
+                    <span>Phí vận chuyển:</span>
+                    <strong>Miễn phí</strong>
+                </div>
+                <div class="total-row">
+                    <span>Tổng cộng:</span>
+                    <strong><?php echo number_format($total); ?> VNĐ</strong>
+                </div>
+            </div>
         </div>
+
+        <?php if (!isset($show_payment_info)): ?>
+            <!-- Phần chọn phương thức thanh toán -->
+            <div class="payment-methods">
+                <h2>Chọn phương thức thanh toán</h2>
+                <form method="POST" action="">
+                    <div class="payment-option" onclick="selectPayment('bank')">
+                        <input type="radio" name="payment_method" value="bank" id="bank">
+                        <label for="bank">Chuyển khoản ngân hàng</label>
+                    </div>
+                    
+                    <div class="payment-option" onclick="selectPayment('momo')">
+                        <input type="radio" name="payment_method" value="momo" id="momo">
+                        <label for="momo">Ví điện tử MoMo</label>
+                    </div>
+                    
+                    <div class="payment-option" onclick="selectPayment('cod')">
+                        <input type="radio" name="payment_method" value="cod" id="cod">
+                        <label for="cod">Thanh toán khi nhận hàng (COD)</label>
+                    </div>
+
+                    <button type="submit" class="btn-proceed">Xác nhận đơn hàng</button>
+                </form>
+            </div>
+        <?php else: ?>
+            <!-- Hiển thị thông tin thanh toán -->
+            <div class="payment-info">
+                <h2>Thông tin thanh toán</h2>
+                <?php if ($_SESSION['payment_method'] == 'bank'): ?>
+                    <div class="bank-details">
+                        <p><strong>Ngân hàng:</strong> Vietcombank</p>
+                        <p>
+                            <strong>Số tài khoản:</strong> 1234567890
+                            <button class="copy-btn" onclick="copyToClipboard('1234567890')">Sao chép</button>
+                        </p>
+                        <p>
+                            <strong>Chủ tài khoản:</strong> NGUYEN VAN A
+                            <button class="copy-btn" onclick="copyToClipboard('NGUYEN VAN A')">Sao chép</button>
+                        </p>
+                        <p>
+                            <strong>Số tiền:</strong> <?php echo number_format($total); ?> VNĐ
+                            <button class="copy-btn" onclick="copyToClipboard('<?php echo $total; ?>')">Sao chép</button>
+                        </p>
+                        <p>
+                            <strong>Nội dung chuyển khoản:</strong> <?php echo $_SESSION['order_id']; ?>
+                            <button class="copy-btn" onclick="copyToClipboard('<?php echo $_SESSION['order_id']; ?>')">Sao chép</button>
+                        </p>
+                    </div>
+                <?php elseif ($_SESSION['payment_method'] == 'momo'): ?>
+                    <div class="qr-code">
+                        <p>Quét mã QR để thanh toán qua Momo</p>
+                        <img src="/api/placeholder/200/200" alt="Mã QR MoMo">
+                        <p>Hoặc chuyển khoản đến số điện thoại: 0123456789</p>
+                    </div>
+                <?php else: ?>
+                    <p>Bạn đã chọn thanh toán khi nhận hàng (COD)</p>
+                    <p>Vui lòng chuẩn bị số tiền <?php echo number_format($total); ?> VNĐ khi nhận hàng</p>
+                <?php endif; ?>
+            </div>
+
+            <button onclick="window.location.href='index.php'" class="btn-proceed">Quay về trang chủ</button>
+        <?php endif; ?>
     </div>
+
+    <script>
+        function selectPayment(method) {
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            document.querySelector(`#${method}`).closest('.payment-option').classList.add('selected');
+            document.querySelector(`#${method}`).checked = true;
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Đã sao chép vào clipboard!');
+            }).catch(err => {
+                console.error('Không thể sao chép: ', err);
+            });
+        }
+    </script>
 </body>
 </html>
