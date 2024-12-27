@@ -12,7 +12,7 @@
         </div>
         <div class="bg-primary d-flex justify-content-around">
             <div>
-                <a class="text-white" href="#">TRANG CHỦ</a>
+                <a class="text-white" href="#">HOME</a>
             </div>
             <div>
                 <a class="text-white" href="#">FANPAGE FB</a>
@@ -21,10 +21,10 @@
                 <small>Copyright &copy; 2024 Ho Chi Minh City University of Education. PHP.</small>
             </div>
             <div>
-                <a class="text-white" href="#">SỰ KIỆN</a>
+                <a class="text-white" href="#">EVENT</a>
             </div>
             <div>
-                <a class="text-white" href="#">GIỚI THIỆU</a>
+                <a class="text-white" href="#">INTRODUCTION</a>
             </div>
         </div>
         <div class="d-flex justify-content-center bg-primary py-3">
@@ -35,14 +35,14 @@
                 <div class="flex-row d-flex align-items-center mb-2">
                     <img src="https://cdn-icons-png.flaticon.com/128/9385/9385258.png"
                         width="30" height="30">
-                    <div class="ml-1">Địa chỉ</div>
+                    <div class="ml-1">Address</div>
                 </div>
                 <div class="flex-row d-flex justify-content-start align-items-start">
-                    <p class="mb-0 mr-1 font-weight-bolder">Trụ sở chính:</p>
+                    <p class="mb-0 mr-1 font-weight-bolder">Main campus:</p>
                     280 An Dương Vương, Phường 4, Quận 5, Thành
                 </div>
                 <div>Phố Hồ Chí Minh</div>
-                <div class="font-weight-bolder mt-2">Các cơ sở đào tạo khác:</div>
+                <div class="font-weight-bolder mt-2">Different campus:</div>
                 <div class="flex-column d-flex align-items-start">
                     <ul class="pl-3 mb-0">
                         <li>Cơ sở 2: 222 Lê Văn Sỹ, Phường 14, Quận 3, Thành phố Hồ</li>
@@ -56,7 +56,7 @@
                     <div>Tp. Tân An, tỉnh Long An</div>
                 </div>
             </div>
-            <div class="ml-4 flex-column d-flex justify-content-start align-items-start">
+            <div class="ml-5 flex-column d-flex justify-content-start align-items-start">
                 <div class="flex-row d-flex align-items-center mb-2">
                     <img src="https://cdn-icons-png.flaticon.com/128/10400/10400895.png"
                         width="30" height="30">
@@ -73,7 +73,7 @@
                     <div class="ml-1">Fax: 028 - 38398946</div>
                 </div>
             </div>
-            <div class="ml-4 flex-column d-flex justify-content-start align-items-start">
+            <div class="ml-5 flex-column d-flex justify-content-start align-items-start">
                 <div class="font-weight-bolder">Social media</div>
                 <div class="flex-row mt-2">
                     <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/2504/2504903.png"

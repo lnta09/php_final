@@ -60,8 +60,9 @@
                     <div class="ml-3 w-100">
                         <div class="text-secondary">Genger</div>
                         <select class="border-0 h5 m-0 w-75">
-                            <option>Male</option>
-                            <option>Femail</option>
+                            <?php if($this_user['gender'] == 'male') {?>
+                            <option <?php echo 'selected'; } else { ?>>Male</option>
+                            <option <?php echo 'selected';} ?>>Femail</option>
                         </select>
                     </div>
                 </div>
@@ -70,7 +71,7 @@
                         width="30" height="30">
                     <div class="ml-3 w-100">
                         <div class="text-secondary">Date of Birth</div>
-                        <input class="border-0 h5 m-0 w-75" type="date" value="2004-12-23">
+                        <input class="border-0 h5 m-0 w-75" type="date" value="<?php echo $this_user['birthday']; ?>">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-outline-primary ml-3 mb-5"><h5 class="m-0">Update user profile</h5></button>

@@ -2,10 +2,10 @@
     require_once("database.php");
 
     class Product extends Database{
-        public function create_1_product($name, $description, $price, $category_id, $avatar_path)
+        public function create_1_product($name, $description, $price, $category_id, $quantity)
         {
-            $sql = "INSERT INTO product (name, description, price, category_id, avatar)
-            VALUES ('$name', '$description', '$price', '$category_id', '$avatar_path')";
+            $sql = "INSERT INTO product (name, description, price, category_id, quantity)
+            VALUES ('$name', '$description', '$price', '$category_id', '$quantity')";
 
             $this->set_query($sql);
             $this->excute_query();

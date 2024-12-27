@@ -26,13 +26,46 @@
                 <div class="text-white ad-aside-title pe-5 h6 m-0">Product</div>
             </a>
         </li>
+        <li class="nav-item dropdown border-top">
+            <a class="flex-row d-flex justify-content-start align-items-center text-white py-1 ps-4 pe-5" 
+                style="text-decoration: none;" href="list_category.php">
+                <img src="https://cdn-icons-png.flaticon.com/128/12492/12492310.png"
+                width="34" height="34" class="me-3 my-1">
+                <div class="text-white ad-aside-title pe-5 h6 m-0">Category</div>
+            </a>
+        </li>
+        <li class="nav-item dropdown border-top">
+            <a class="flex-row d-flex justify-content-start align-items-center text-white py-1 ps-4 pe-5" 
+                style="text-decoration: none;" href="list_image.php">
+                <img src="https://cdn-icons-png.flaticon.com/128/2659/2659360.png"
+                width="34" height="34" class="me-3 my-1">
+                <div class="text-white ad-aside-title pe-5 h6 m-0">Images</div>
+            </a>
+        </li>
+        <li class="nav-item dropdown border-top">
+            <a class="flex-row d-flex justify-content-start align-items-center text-white py-1 ps-4 pe-5" 
+                style="text-decoration: none;" href="">
+                <img src="https://cdn-icons-png.flaticon.com/128/3045/3045670.png"
+                width="34" height="34" class="me-3 my-1">
+                <div class="text-white ad-aside-title pe-5 h6 m-0">Orders</div>
+            </a>
+        </li>
+        <li class="nav-item dropdown border-top">
+            <a class="flex-row d-flex justify-content-start align-items-center text-white py-1 ps-4 pe-5" 
+                style="text-decoration: none;" href="">
+                <img src="https://cdn-icons-png.flaticon.com/128/2728/2728447.png"
+                width="34" height="34" class="me-3 my-1">
+                <div class="text-white ad-aside-title pe-5 h6 m-0">Order Detail</div>
+            </a>
+        </li>
         <li class="nav-item border-top">
-        <a class="flex-row d-flex justify-content-start align-items-center text-white py-1 ps-4 pe-5" 
+            <a class="flex-row d-flex justify-content-start align-items-center text-white py-1 ps-4 pe-5" 
                 style="text-decoration: none;" href="../controller/c_signout.php">
                 <img src="https://cdn-icons-png.flaticon.com/128/4400/4400828.png"
                 width="34" height="34" class="me-3 my-1">
                 <div class="text-white ad-aside-title pe-5 h6 m-0">Logout</div>
             </a>
         </li>
+        
     </ul>
 </div>

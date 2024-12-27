@@ -6,7 +6,7 @@
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <form method="post" action="../controller/c_add_product.php" enctype="multipart/form-data">
+    <form method="post" action="../controller/c_add_product.php">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="staticBackdropLabel">Add product</h1>
@@ -27,15 +27,22 @@
                 <label for="price" class="form-label">Price</label>
                 <input type="number" id="price" name="price" class="form-control" step="0.01" required>
             </div>
-
+            <?php 
+              require('../controller/c_list_category.php');
+              $c_category = new C_category();
+              $list_category = $c_category->list_all_category();
+            ?>
             <div class="mb-3">
-                <label for="category_id" class="form-label">Category ID</label>
-                <input type="number" id="category_id" name="category_id" class="form-control" required>
+                <label for="category_id" class="form-label">Category</label>
+                <select class="form-select" aria-label="Default select example" name="category">
+                  <?php foreach($list_category as $category): ?>
+                    <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
+                  <?php endforeach; ?>
+              </select>
             </div>
-
             <div class="mb-3">
-                <label for="avatar" class="form-label">Product Avatar (Image)</label>
-                <input type="file" id="avatar" name="avatar" class="form-control" accept="image/*" required>
+                <label for="avatar" class="form-label">Quantity</label>
+                <input type="number" name="quantity" class="form-control" required>
             </div>
         </div>
         <div class="modal-footer">

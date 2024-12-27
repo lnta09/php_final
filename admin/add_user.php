@@ -27,6 +27,17 @@
               <input class="form-control" type="text" id="username" name="username" required>
           </div>
           <div class="form-group flex-column d-flex justify-content-start mt-3">
+              <label class="mb-1" for="gender">Gender</label>
+              <select class="form-select" aria-label="Default select example" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+          </div>
+          <div class="form-group flex-column d-flex justify-content-start mt-3">
+              <label class="mb-1" for="birthday">Birthday</label>
+              <input class="form-control" type="date" name="birthday">
+          </div>
+          <div class="form-group flex-column d-flex justify-content-start mt-3">
               <label class="mb-1" for="phone">Phone</label>
               <input class="form-control" type="number" id="phone" name="phone" required>
           </div>

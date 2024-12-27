@@ -1,7 +1,7 @@
 <?php 
-        require('../template/admin_head.php');
-        require ('../template/admin_header.php');
     session_start();
+    require('../template/admin_head.php');
+    require ('../template/admin_header.php');
 ?>
 
 
@@ -12,7 +12,6 @@
         <div class="container mt-4">
             <h2>Welcome to the Admin Dashboard!</h2>
             <p>This is your central hub for managing the application.</p>
-
             <?php 
                 require('add_user.php'); 
                 require('edit_user.php');
@@ -33,6 +32,8 @@
                                 <th>Email</th>
                                 <th>Username</th>
                                 <th>Phone</th>
+                                <th>Genger</th>
+                                <th>Birthday</th>
                                 <th>Role</th>
                                 <th>Actions</th>
                             </tr>
@@ -43,6 +44,8 @@
                                 <td><?php echo "{$user['email']}";     ?></td>
                                 <td><?php echo "{$user['username']}";    ?></td>
                                 <td><?php echo "{$user['phone']}";     ?></td>
+                                <td><?php echo "{$user['gender']}";     ?></td>
+                                <td><?php echo "{$user['birthday']}";     ?></td>
                                 <td><?php 
                                     $role = $user['role'] == 0 ? "admin" : "user";
                                     echo $role; 
@@ -53,6 +56,8 @@
                                             data-email="<?php echo $user['email']; ?>" 
                                             data-username="<?php echo $user['username']; ?>" 
                                             data-phone="<?php echo $user['phone']; ?>"
+                                            data-gender="<?php echo $user['gender']; ?>"
+                                            data-birthday="<?php echo $user['birthday']; ?>"
                                             data-role="<?php echo $user['role']; ?>"
                                             data-bs-toggle="modal" data-bs-target="#editUserModal">
                                             Edit
