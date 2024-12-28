@@ -10,7 +10,11 @@
         <div class="container mt-4">
             <h2>Welcome to the Admin Dashboard!</h2>
             <p>This is your central hub for managing the application.</p>
-            <?php require('add_image.php'); ?>
+            <?php 
+                require('add_image.php'); 
+                require ('edit_image.php');
+                require ('delete_image.php');
+            ?>
 
             <div class="row">
                 <div class="col-md-12">
@@ -54,7 +58,13 @@
                                             >
                                             Edit
                                         </button>
-                                        <button class="btn btn-danger btn-sm">Delete</button>
+                                        <button class="btn btn-danger btn-sm delete-btn"
+                                            data-id="<?php echo $image['id']; ?>"
+                                            data-path="<?php echo $image['path']; ?>"
+                                            data-bs-toggle="modal" data-bs-target="#deleteImageModal"
+                                            >
+                                            Delete
+                                        </button>
                                     </div>
                                 </td>
                             </tr>

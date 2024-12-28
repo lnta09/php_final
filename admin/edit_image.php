@@ -1,6 +1,6 @@
 <div class="modal fade" id="editImageModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form id="editForm" method="POST" action="../controller/c_edit_user.php">
+        <form id="editForm" method="POST" action="../controller/c_edit_image.php">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editModalLabel">Edit Image</h5>
@@ -13,13 +13,17 @@
                     <input class="form-control" id="edit-id" name="id" readonly>
                   </div>
                   <div class="mb-3">
-                      <label class="form-label h6">Product</label>
-                      <input type="text" class="form-control" id="edit-product_id" name="product_id" required>
-                  </div>
-                  <div class="mb-3">
                       <label for="edit-lastname" class="form-label h6">Image</label>
-                      <input type="file" class="form-control" id="edit-path" name="path" required>
+                      <img id="edit-path" width="100%" height="100%">
                     </div>
+                  <div class="mb-3">
+                      <label class="form-label h6">Product</label>
+                      <select class="form-select" name="product_id" id="edit-product_id">
+                            <?php foreach ($list_product as $product){ ?>
+                            <option value="<?php echo $product['id']; ?>"><?php echo $product['name']; ?></option>
+                            <?php } ?>
+                        </select>
+                  </div>
                     
                 </div>
                 <div class="modal-footer">
@@ -37,19 +41,13 @@
 
       editButtons.forEach(btn => {
           btn.addEventListener("click", () => {
-            const email = btn.getAttribute("data-email");
-            const username = btn.getAttribute("data-username");
-            const phone = btn.getAttribute("data-phone");
-            const gender = btn.getAttribute("data-gender");
-            const birthday = btn.getAttribute("data-birthday");
-            const role = btn.getAttribute("data-role");
+            const id = btn.getAttribute("data-id");
+            const product_id = btn.getAttribute("data-product_id");
+            const path = btn.getAttribute("data-path");
 
-              document.getElementById("edit-email").value = email;
-              document.getElementById("edit-username").value = username;
-              document.getElementById("edit-phone").value = phone;
-              document.getElementById("edit-gender").value = gender;
-              document.getElementById("edit-birthday").value = birthday;
-              document.getElementById("edit-role").value = role;
+              document.getElementById("edit-id").value = id;
+              document.getElementById("edit-product_id").value = product_id;
+              document.getElementById("edit-path").src = path;
           });
       });
   });

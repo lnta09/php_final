@@ -2,10 +2,10 @@
     require_once("database.php");
     
     class User extends Database{
-        public function create_1_user( $email, $password, $username, $phone, $gender, $birthday, $role )
+        public function create_1_user( $email, $password, $username, $phone, $role )
         {
-            $sql = "INSERT INTO user (username, phone, email, password, gender, birthday, role)
-                    VALUES ('{$username}', '{$phone}', '{$email}', '{$password}', '{$gender}', '{$birthday}', '{$role}')";
+            $sql = "INSERT INTO user (username, phone, email, password, role)
+                    VALUES ('{$username}', '{$phone}', '{$email}', '{$password}', '{$role}')";
             $this->set_query($sql);
             $this->excute_query();
             $this->close();

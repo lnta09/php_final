@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group flex-column d-flex justify-content-start">
                         <label class="mb-1" for="phone">Phone number</label>
-                        <input class="form-control" type="number" id="phone" name="phone" required>
+                        <input class="form-control" type="number" name="phone" required>
                     </div>
                     
                     <button type="submit" class="btn btn-dark font-weight-bolder mt-4 w-100">Sign Up</button>

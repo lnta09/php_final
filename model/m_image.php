@@ -12,9 +12,18 @@
             $this->close();
         }
 
-        public function edit_image($id, $product_id, $path){
+        public function edit_image($id, $product_id){
             $sql = " Update image
-                Set product_id = '$product_id', path = '$path'
+                Set product_id = '$product_id'
+                Where id = '$id'
+            ";
+            $this->set_query($sql);
+            $this->excute_query();
+        }
+
+        public function delete_image($id){
+            $sql = "
+                Delete From image 
                 Where id = '$id'
             ";
             $this->set_query($sql);
@@ -22,7 +31,7 @@
         }
      
         public function list_all_image() {
-            $sql = "SELECT  * FROM image";
+            $sql = "SELECT * FROM image";
             $this->set_query($sql);
 
             // echo "$this->query <br>";0799
@@ -36,6 +45,23 @@
                 }
             } 
             return $list_image; 
+        }
+
+        public function select_image($id){
+            $sql = "Select * 
+                From image
+                Where id = '$id'
+            ";
+
+            $this->set_query($sql);
+            $result = $this->excute_query();
+            if($result->num_rows > 0){
+                $row = $result->fetch_assoc();
+                return $row;
+            }
+            else{
+                return null;
+            }
         }
     }
 ?>

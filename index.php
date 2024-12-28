@@ -235,9 +235,13 @@
 
 <?php
         require ('controller/c_list_product_home.php');
+        require('controller/c_list_image_home.php');
 
         $c_product = new C_product();
         $list_product= $c_product->list_all_product();
+
+        $c_image = new C_image();
+        $list_image = $c_image->list_all_image();
 ?>
 
 <div class="my-5">  
@@ -255,7 +259,13 @@
                         <div class="pl-4 pr-5"></div>
 
                 <?php for ($j = $i; $j < $i + $itemsPerSlide && $j < $totalProducts; $j++) {
-                        $img = substr($list_product[$j]['avatar'], 3); ?>
+                    foreach($list_image as $image){
+                        if($image['product_id'] == $list_product[$j]['id']){
+                            $img = substr($image['path'], 3);
+                            break;
+                        }
+                    }
+                ?>
                         <a href="#" class="card ml-4 shadow-sm my-4" style="width: 170px;">
                             <img src="<?php echo $img; ?>" class="card-img-top p-3" alt="Product Image">
                             <div class="card-body pt-0 px-3 pb-3" style="height: 130px;">
@@ -333,7 +343,7 @@
 
 <div class="my-5">  
     <h3 class="ml-5 pl-5 mb-0">Trending Products</h3>
-    <div id="productCarousel" class="carousel slide" data-ride="carousel">
+    <div id="trendingProduct" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner ">
             <?php 
                 $itemsPerSlide = 5;
@@ -346,7 +356,13 @@
                         <div class="pl-4 pr-5"></div>
 
                 <?php for ($j = $i; $j < $i + $itemsPerSlide && $j < $totalProducts; $j++) {
-                        $img = substr($list_product[$j]['avatar'], 3); ?>
+                    foreach($list_image as $image){
+                        if($image['product_id'] == $list_product[$j]['id']){
+                            $img = substr($image['path'], 3);
+                            break;
+                        }
+                    }
+                ?>
                         <a href="#" class="card ml-4 shadow-sm my-4" style="width: 170px;">
                             <img src="<?php echo $img; ?>" class="card-img-top p-3" alt="Product Image">
                             <div class="card-body pt-0 px-3 pb-3" style="height: 130px;">
@@ -359,14 +375,14 @@
                 </div>
             <?php } ?>
         </div>
-        <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#trendingProduct" role="button" data-slide="prev">
             <span class=".carousel-control-prev-icon shadow rounded-circle" aria-hidden="true">
                 <img src="https://cdn-icons-png.flaticon.com/128/11839/11839308.png"
                     width="35" height="35">
             </span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#trendingProduct" role="button" data-slide="next">
             <span class=".carousel-control-next-icon shadow rounded-circle" aria-hidden="true">
                 <img src="https://cdn-icons-png.flaticon.com/128/11839/11839355.png"
                  width="35" height="35">
