@@ -1,18 +1,9 @@
 <?php
 session_start();
+require_once("model/m_product.php");
 
-// Kết nối cơ sở dữ liệu
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "giohang";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Kiểm tra kết nối
-if ($conn->connect_error) {
-    die("Kết nối thất bại: " . $conn->connect_error);
-}
+// Khởi tạo đối tượng Product
+$productModel = new Product();
 
 // Kiểm tra session giỏ hàng
 if (!isset($_SESSION['cart'])) {
@@ -22,12 +13,13 @@ if (!isset($_SESSION['cart'])) {
 // Lấy danh sách sản phẩm
 $cart = $_SESSION['cart'];
 $product_list = [];
-$total = 0; // Khởi tạo biến tổng cộng
+$total = 0;
 
 if (!empty($cart)) {
     $product_ids = implode(',', array_keys($cart));
     $sql = "SELECT id, name, price FROM product WHERE id IN ($product_ids)";
-    $result = $conn->query($sql);
+    $productModel->set_query($sql);
+    $result = $productModel->excute_query();
 
     if ($result && $result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
@@ -36,8 +28,6 @@ if (!empty($cart)) {
         }
     }
 }
-
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -47,6 +37,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ hàng</title>
     <style>
+    /* CSS giữ nguyên như cũ */
     body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -105,6 +96,19 @@ $conn->close();
         border-radius: 5px;
         font-size: 16px;
     }
+    .quantity-control {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .quantity-control button {
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    .quantity-control input {
+        width: 50px;
+        text-align: center;
+    }
     </style>
 </head>
 <body>
@@ -134,9 +138,11 @@ $conn->close();
                                 <td><?php echo number_format($product['price']); ?> VNĐ</td>
                                 <td>
                                     <div class="quantity-control">
-                                        <button>-</button>
-                                        <input type="number" value="<?php echo $cart[$product['id']]; ?>" min="1">
-                                        <button>+</button>
+                                        <button onclick="updateQuantity(<?php echo $product['id']; ?>, 'decrease')">-</button>
+                                        <input type="number" id="qty_<?php echo $product['id']; ?>" 
+                                               value="<?php echo $cart[$product['id']]; ?>" min="1" 
+                                               onchange="updateQuantity(<?php echo $product['id']; ?>, 'input')">
+                                        <button onclick="updateQuantity(<?php echo $product['id']; ?>, 'increase')">+</button>
                                     </div>
                                 </td>
                                 <td><?php echo number_format($product['price'] * $cart[$product['id']]); ?> VNĐ</td>
@@ -162,5 +168,38 @@ $conn->close();
             <a href="phuongthucthanhtoan.php" class="btn">Tiến hành thanh toán</a>
         </div>
     </div>
+
+    <script>
+    function updateQuantity(productId, action) {
+        const inputElement = document.getElementById(`qty_${productId}`);
+        let currentValue = parseInt(inputElement.value);
+        
+        if (action === 'increase') {
+            currentValue++;
+        } else if (action === 'decrease' && currentValue > 1) {
+            currentValue--;
+        } else if (action === 'input') {
+            currentValue = parseInt(inputElement.value);
+            if (currentValue < 1) currentValue = 1;
+        }
+        
+        inputElement.value = currentValue;
+        
+        // Cập nhật session thông qua AJAX
+        fetch('update_cart.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `product_id=${productId}&quantity=${currentValue}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            }
+        });
+    }
+    </script>
 </body>
 </html>
